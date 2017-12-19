@@ -13,10 +13,12 @@
 \begin{document}
 \maketitle
 
+\section*{Silicio}
 Legge di Azione di Massa:
 \begin{equation*}
 n \cdot p = h(T)
 \end{equation*}
+per il silicio intrinseco ad una temperatura di $300K$ $n_i = 1.4 \times 10^{10} \frac{\text{elettroni liberi}}{cm^3}$.\\
 No. di elettroni con livello energetico $E$:
 \begin{equation*}
 K(E)=P(E) \cdot g(E)
@@ -38,23 +40,23 @@ n = n_i e^\frac{(E_F-E_{Fi})}{kT}
 \begin{equation*}
 p = n_i e^\frac{(E_{Fi}-E_F}{kT}
 \end{equation*}
-Definiamo:
+Definiamo energia potenziale nella rispettiva zona (n, p) e di built-in:
 \begin{equation*}
-\varphi_n = E_F-E_{Fi} = kT \log(\frac{N_D}{n_i})
+\varphi_n = E_F-E_{Fi} = kT \log \left( \frac{N_D}{n_i} \right)
 \end{equation*}
 \begin{equation*}
-\varphi_p = E_{Fi}-E_F = kT \log(\frac{N_A}{n_i})
+\varphi_p = E_{Fi}-E_F = kT \log \left(\frac{N_A}{n_i}\right)
 \end{equation*}
 \begin{equation*}
-\varphi_{bi} = \varphi_n + \varphi_p = kT \log(\frac{N_DN_A}{n_i^2})
+\varphi_{bi} = \varphi_n + \varphi_p = kT \log \left(\frac{N_DN_A}{n_i^2}\right)
 \end{equation*}
 Definiamo Potenziale di Built-In:
 \begin{equation*}
-V_{bi} = \frac{\varphi_{bi}}{q} = \frac{\varphi_n + \varphi_p}{q} = \frac{kT}{q} \log(\frac{N_DN_A}{n_i^2})
+V_{bi} = \frac{\varphi_{bi}}{q} = \frac{\varphi_n + \varphi_p}{q} = \frac{kT}{q} \log \left(\frac{N_DN_A}{n_i^2}\right)
 \end{equation*}
 Dalla sequente:
 \begin{equation*}
-\frac{dE}{dx} = \frac{Q}{\varepsilon_{Si}}
+\frac{dE}{dx} = \frac{\rho}{\varepsilon_{Si}}
 \end{equation*}
 si ricava il campo elettrico massimo:
 \begin{equation} \label{eq:e_max}
@@ -78,7 +80,7 @@ x_d = x_n + x_p = \sqrt{\frac{2\varepsilon_{Si}}{q} \frac{N_D+N_A}{N_DN_A} V_{bi
 Nel caso di una giunzione unilatera si ha che la z.c.s. è prevalentemente estesa nella zona meno drogata.
 
 \section*{Polarizzazione Inversa}
-Viene applicata una tensione alla giunzione $pn$ affinchè le z.c.s. si allarghino. Dalla \eqref{eq:zcs_n} e dalla \eqref{eq:zcs_p} le dimensioni delle cariche spaziali diventano quindi:
+Viene applicata una tensione alla giunzione $pn$ affinché le z.c.s. si allarghino. Dalla \eqref{eq:zcs_n} e dalla \eqref{eq:zcs_p} le dimensioni delle cariche spaziali diventano quindi:
 \begin{equation*}
 x_n = \sqrt{\frac{2\varepsilon_{Si}}{q} \frac{N_A}{N_D} \frac{1}{N_D+N_A} (V_{bi} + V_{ext})}
 \end{equation*}
@@ -88,7 +90,7 @@ x_p = \sqrt{\frac{2\varepsilon_{Si}}{q} \frac{N_D}{N_A} \frac{1}{N_D+N_A} (V_{bi
 
 \subsection*{Capacità di giunzione}
 Se le regioni si allargano, vuol dire che delle cariche libere si sono spostate generando una corrente.
-Il comportamento di una giunzione può essere approssimata a quella di un condensatore a facce piane parallele:
+Il comportamento di una giunzione può essere approssimato a quella di un condensatore a facce piane parallele:
 \begin{equation*}
 C_j = \epsilon_{Si} \cdot \frac{A}{x_d}
 \end{equation*}
@@ -99,7 +101,7 @@ C_j = \epsilon_{Si} \cdot \frac{A}{x_d}
 Si definisce tensione di breakdown $V_{BD}$ la tensione massima che la giunzione può sostenere prima che uno dei due effetti sopracitati prenda il sopravvento.
 Per una giunzione unilatera ($N_D>>N_A$) attraverso la \eqref{eq:e_max} si ricava la relazione della tensione di breakdown:
 \begin{equation*}
-V_{BD} = \frac{E_{max}^2 \varepsilon_{Si}}{2qN_A} - V_{bi}
+V_{BD} = \frac{E_{BD}^2 \varepsilon_{Si}}{2qN_A} - V_{bi}
 \end{equation*}
 
 \section*{Polarizzazione Diretta}
@@ -109,20 +111,15 @@ Definiamo densità di corrente:
 J_n = qD_n \frac{dn}{dx}
 \end{equation*}
 Con $D_n$ coeff. di diffusione.
-
+\\
 Relazione di Einstein che lega il coeff. di diffusione e la mobilità:
 \begin{equation*}
 D_n = \frac{kT}{q} \mu_n
 \end{equation*}
 
-La corrente totale è quindi:
-\begin{equation*}
-I_{tot} = I_n + I_p = Aqn_i^2[\frac{D_n}{N_Ax_p} + \frac{D_p}{N_Dx_n}][e^\frac{qV_{ext}}{kT}-1] = I_S \cdot (e^\frac{qV_{ext}}{kT}-1)
-\end{equation*}
-
 \section*{Fotodiodo}
 Ovvero un diodo polarizzato in inversa illuminato da un fascio di luce.
-La radiazione che colpisce il diodo può liberare degli elettroni che andranno a ricombinarsi producendo una corrente nel circuito pari a:
+La radiazione che colpisce il diodo può liberare degli elettroni che, scorrendo nel circuito, andranno a ricombinarsi producendo una corrente pari a:
 \begin{equation*}
 I_\nu = [\frac{\#fotoni}{area \cdot t} h\nu]
 \end{equation*}
@@ -131,16 +128,37 @@ L'assorbimento della radiazione è un fenomeno di volume per cui segue la relazi
 I_\nu(x) = I_\nu(0) e^{-\alpha x}
 \end{equation*}
 con $\alpha = \frac{1}{L_A}$ cioè il reciproco della lunghezza di assorbimento.
+\\
+La resistenza dovuta dalle zone neutre (dove non c'è rigenerazione) vale:
+\begin{equation*}
+R_{(n, N_D)}^{neutra} = \frac{1}{N_D q \mu_n} \frac{w_n}{S}
+\end{equation*}
 
 \section*{Fotodiodo pin}
-Il fotodiodo pin consiste in una giunzione con del silicio intrinseco tra le regioni p e n. Viene utilizzato nei diodi che devono sostenere alte tensioni di lavoro.
+Il fotodiodo pin consiste in una giunzione con del silicio intrinseco tra le regioni p e n. Viene utilizzato nei diodi che devono sostenere alte tensioni di lavoro perché praticamente tutta la $V$ cade su $w_i$.
 
+\section*{Diodo}
 Per calcolare la corrente passante si distingue tra due casi:
-Definiamo $\tau_{tr} = \frac{x_p^2}{2D_n}$ il tempo di transito di un $e^{-}$ e $\tau_n$ il tempo di vita dell'elettrone cioè il tempo medio di ricombinazione.\\
+Definiamo $\tau_{tr} = \frac{x_p^2}{2D_n}$ il tempo di transito di un $e^{-}$ e $\tau_n$ il tempo di vita dell'elettrone cioè il tempo medio di ricombinazione.
+
 \subsubsection*{Base corta}
-- L'approx. di base corta trascura la ricombinazione cioè quando $\tau_{tr}<<\tau_n$. Da cui $x_p<<L_n$ con $L_n = \sqrt{D_n \tau_n}$ lunghezza di diffusione (distanza percorsa prima di ricombinarsi).
+- L'approx. di base corta trascura la ricombinazione cioè quando $\tau_{tr}<<\tau_n$. Da cui $w_p<<L_n$ con $L_n = \sqrt{D_n \tau_n}$ lunghezza di diffusione (distanza percorsa prima di ricombinarsi).
+La corrente totale è quindi:
+\begin{equation*}
+I_{tot} = I_n + I_p = Aqn_i^2 \left[ \frac{D_n}{N_A w_p^\prime} + \frac{D_p}{N_D w_n^\prime} \right] \left[ e^\frac{qV_{ext}}{kT} - 1 \right] = I_S \cdot \left( e^\frac{qV_{ext}}{kT} - 1 \right)
+\end{equation*}
+con $w_n^\prime = w_n - x_n$ e $w_p^\prime = w_p - x_p$ cioè le zone neutre.\\
+Dalla relazione precedente sembrerebbe che la corrente diminuisca all'aumentare della temperatura, in realtà c'è da considerare che 
+\begin{equation*}
+n_i^2 = np \propto e^{-\frac{(E_C - E_F)}{kT}} - e^{-\frac{(E_F - E_V)}{kT}} = e^{-\frac{E_{gap}}{kT}}
+\end{equation*}
+quindi c'è una relazione di tipo esponenziale tra l'aumento dei portatori liberi di carica e l'aumento della temperatura che fa aumentare la corrente.
+
 \subsubsection*{Base lunga}
-- Il caso del diodo a base lunga invece tiene conto della ricombinazione degli elettroni.
+- Il caso del diodo a base lunga invece tiene conto della ricombinazione degli elettroni. La relazione della corrente è analoga a quella per il diodo a base corta ma $w_p$ e $w_n$ sono rispettivamente approssimabili con $L_p$ e $L_n$. 
+\begin{equation*}
+I_{tot} = Aqn_i^2 \left[ \frac{D_n}{N_A L_p^\prime} + \frac{D_p}{N_D L_n^\prime} \right] \left[ e^\frac{qV_{ext}}{kT} - 1 \right] = I_S \cdot \left( e^\frac{qV_{ext}}{kT} - 1 \right)
+\end{equation*}
 
 \section*{Transistore Bipolare (BJT)}
 \textbf{Interdizione}\\
@@ -167,7 +185,7 @@ I_C = \beta_F I_B
 \subsection*{MOS - Metal Oxide Semiconductor}
 Tensione di flat-band:
 \begin{equation*}
-|V_{fb}| = -\Delta V = - \left( \frac{E_{gap}}{2q} + \varphi_p \right)
+V_{fb} = -\Delta V = - \left( \frac{E_{gap}}{2q} + \varphi_p \right)
 \end{equation*}
 Ovvero la tensione che applicata tra gate e substrato fa coincidere le $E_F$ annullando il campo elettrico in direzione verticale. Ad esempio se il substrato è di tipo $p$ e nessuna tensione è applicata tra gate e substrato, si ha una differenza di potenziale tra metallo ($-$) e substrato ($+$). Aumentando la tensione esterna tra i due strati si raggiunge una condizione di equilibrio dove la tensione totale è nulla. proseguendo oltre e superando la tensione di soglia si ottiene un'inversione del substrato, che diventa equivalente ad una zona $n$, e si crea un canale conduttivo al di sotto dell'ossido composto da cariche libere. La tensione di flat-band è negativa se il substrato è di tipo $p$, viceversa se di tipo $n$.\\
 \\
@@ -194,7 +212,7 @@ Se $V_{GS} > V_T$ allora è presente un canale conduttivo sotto l'ossido dove gl
 \begin{equation*}
 Q = -C_{ox} (V_{GS} - V_T)
 \end{equation*}
-con $C_{ox} = \varepsilon \frac{WL}{d}$.
+con $C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}}$ capacità dell'ossido per unità di area. $t_{ox}$ è lo spessore dell'ossido.
 
 \begin{equation}	\label{eq:corrente_ch}
 I_D = C_{ox} \mu_n \frac{W}{L} \left[ (V_{GS} - V_T)V_{DS} - \frac{1}{2}V_{DS}^2 \right]
@@ -253,12 +271,47 @@ I_D = \frac{1}{2} C_{ox} \mu_n \frac{W}{L} \left[ V_{GS} - V_{T_0} + \gamma \lef
 
 \newpage
 \section*{Elettronica Digitale}
-- Invertitore logico ($NOT$)\\
-- Invertitore CMOS (complementary MOS)\\
--- Analisi dinamica\\
--- Tempi di commutazione\\
--- Potenza dissipata\\
--- Potenza di cross-conduzione\\
+
+\subsection*{Invertitore logico ($NOT$)}
+
+\subsection*{Invertitore CMOS (complementary MOS)}
+%Immagine inverter CMOS
+%Descrizione del circuito
+Analizziamo l'inverter facendo 3 casi:\\
+Per $V_x = 0V$ si ha il pMOS acceso, essendo $V_{SG} = V_{DD} > |V_{Tp}|$, ma l'nMOS è spento. Essendo l'nMOS in regime di interdizione, la corrente che gli scorre attraverso è nulla. Per la legge di Kirchhoff la corrente che scorre attraverso il pMOS e l'nMOS deve essere la stessa. Di conseguenza, $I_D = 0A$.\\
+Per $V_x = V_{DD}$ si ha la situazione inversa. Il pMOS è spento mentre l'nMOS è acceso. Ancora una volta la corrente che scorre nell'inverter è nulla.\\
+Vediamo ora il caso in cui la tensione $V_x = V_{Tn} + V_\varepsilon$ ovvero un valore leggermente maggiore della tensione di soglia dell'nMOS. In questo caso si ha acceso sia l'nMOS sia il pMOS. %L'nMOS è in regime ohmico, il pMOS in regime saturo, quindi la corrente passante è dettata dall'nMOS (corrente più piccola tra le due). Aumentando la corrente $I_Dn$ si raggiunge la condizione in cui entrambe le correnti sono di saturazione.
+Il circuito impone che $I_{Dp} = I_{Dn}$ da cui si può ricavare la tensione di threshold $V_{TH}$ alla quale avviene la commutazione tra segnale logico 1 e 0. Questa situazione avviene quando entrambi i MOS sono in regime di saturazione per cui:
+\begin{equation*}
+I_{Dn} = K_n (V_{GSn} - V_{Tn})^2 \stackrel{topologia}{=} K_p (V_{SGp} - |V_{Tp}|)^2 = I_{Dp}
+\end{equation*}
+sostituendo $V_{GSn} = V_{TH}$ e $V_{SGp} = V_{DD} - V_{TH}$ si ottiene
+\begin{equation*}
+\sqrt{K_n} (V_{TH} - V_{Tn}) = \sqrt{K_p} (V_{DD} - V_{TH} - |V_{Tp}|)
+\end{equation*}
+generalmente si lavora nella condizione $K_n = K_p$ e $V_{Tn} = V_{Tp}$. Sostituendo, ricavando $V_{TH}$ e semplificando si ottiene
+\begin{equation*}
+V_{TH} = \frac{V_{DD}}{2}
+\end{equation*}
+
+\subsubsection*{Analisi dinamica}
+\subsubsection*{Tempi di commutazione}
+\subsubsection*{Potenza dissipata}
+\begin{equation*}
+\overline{P_{dissipata}} = \overline{P_{\text{erogata da $V_{DD}$}}} = V_{DD} \cdot \overline{I_{DD}}
+\end{equation*}
+Siccome la corrente non scorre quando la tensione applicata è $V_{DD}$ o $0V$, è la commutazione che fa consumare energia. Trascuriamo l'andamento reale della corrente per semplificare i conti; quindi ragioniamo in termini di carica.
+\begin{equation*}
+\overline{P_{diss}} = V_{DD} \cdot \overline{I_{DD}} = V_{DD} \frac{\Delta Q}{T} = V{DD} \frac{\Delta V_y}{T} = V_{DD} \frac{C_L (V_{y,high} - V_{y,low})}{T} = V_{DD} C_L (V_{y,high} - V_{y,low})f
+\end{equation*}
+essendo $V_{y,high} = V_{DD}$ e $V_{y,low} = 0V$ si ha
+\begin{equation*}
+\overline{P_{diss}} = V_{DD}^2 C_L f
+\end{equation*}
+Quindi per minimizzare il consumo si cerca di diminuire $C_L$ attraverso la miniaturizzazione dei componenti. Inoltre si tende a lavorare a $V_{DD}$ piccole.
+
+\subsubsection*{Potenza di cross-conduzione}
+Supponiamo di collegare al morsetto $V_y$ del invertitore analizzato precedentemente un secondo invertitore CMOS.
 - Porta NOR CMOS\\
 -- Tempi di commutazione\\
 - Memoria DRAM\\
