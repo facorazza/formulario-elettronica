@@ -139,7 +139,7 @@ Il fotodiodo pin consiste in una giunzione con del silicio intrinseco tra le reg
 
 \section*{Diodo}
 Per calcolare la corrente passante si distingue tra due casi:
-Definiamo $\tau_{tr} = \frac{x_p^2}{2D_n}$ il tempo di transito di un $e^{-}$ e $\tau_n$ il tempo di vita dell'elettrone cioè il tempo medio di ricombinazione.
+Definiamo $\tau_{tr} = \frac{x_p^2}{2D_n}$ il tempo di transito di un $e^{-}$ e $\tau_n$ il tempo di vita dell'elettrone cioè il tempo medio prima della  ricombinazione.
 
 \subsubsection*{Base corta}
 - L'approx. di base corta trascura la ricombinazione cioè quando $\tau_{tr}<<\tau_n$. Da cui $w_p<<L_n$ con $L_n = \sqrt{D_n \tau_n}$ lunghezza di diffusione (distanza percorsa prima di ricombinarsi).
@@ -152,12 +152,12 @@ Dalla relazione precedente sembrerebbe che la corrente diminuisca all'aumentare 
 \begin{equation*}
 n_i^2 = np \propto e^{-\frac{(E_C - E_F)}{kT}} - e^{-\frac{(E_F - E_V)}{kT}} = e^{-\frac{E_{gap}}{kT}}
 \end{equation*}
-quindi c'è una relazione di tipo esponenziale tra l'aumento dei portatori liberi di carica e l'aumento della temperatura che fa aumentare la corrente.
+quindi c'è una relazione di tipo esponenziale tra l'aumento dei portatori liberi di carica che fa aumentare la corrente con l'aumento della temperatura, siccome generalmente si lavora a tensioni inferiori alla tensione di gap del silicio 1,12V.
 
 \subsubsection*{Base lunga}
 - Il caso del diodo a base lunga invece tiene conto della ricombinazione degli elettroni. La relazione della corrente è analoga a quella per il diodo a base corta ma $w_p$ e $w_n$ sono rispettivamente approssimabili con $L_p$ e $L_n$. 
 \begin{equation*}
-I_{tot} = Aqn_i^2 \left[ \frac{D_n}{N_A L_p^\prime} + \frac{D_p}{N_D L_n^\prime} \right] \left[ e^\frac{qV_{ext}}{kT} - 1 \right] = I_S \cdot \left( e^\frac{qV_{ext}}{kT} - 1 \right)
+I_{tot} = Aqn_i^2 \left[ \frac{D_n}{N_A L_p} + \frac{D_p}{N_D L_n} \right] \left[ e^\frac{qV_{ext}}{kT} - 1 \right] = I_S \cdot \left( e^\frac{qV_{ext}}{kT} - 1 \right)
 \end{equation*}
 
 \section*{Transistore Bipolare (BJT)}
