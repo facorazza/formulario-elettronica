@@ -10,24 +10,38 @@
 \author{}
 \date{}
 
+\def \*#1{\mathbf{#1}}
+
 \begin{document}
 \maketitle
 
 \section*{Silicio}
-Legge di Azione di Massa:
+Concentrazione elettronica a $T=300K$: $n_i=1.4 \cdot 10^{10}$\\
+Mobilità elettronica: $\mu_n \sim 800 cm^2/Vs$\\
+Mobilità lacunare: $\mu_p \sim 300 cm^2/Vs$\\
+Velocità degli elettroni data da:
+\begin{equation*}
+\*v_e = \mu_n\*E
+\end{equation*}
+Legge di azione di massa:
 \begin{equation*}
 n \cdot p = h(T)
 \end{equation*}
 per il silicio intrinseco ad una temperatura di $300K$ $n_i = 1.4 \times 10^{10} \frac{\text{elettroni liberi}}{cm^3}$.\\
+Il prodotto $n\cdot p$ non dipende dal drogaggio ma solo dalla temperatura.\\
+\\
 No. di elettroni con livello energetico $E$:
 \begin{equation*}
 K(E)=P(E) \cdot g(E)
 \end{equation*}
+$g(E)$ verrà assunto costante.\\
+Concentrazione di \textit{elettroni} seconda la distribuzione di Fermi-Dirac:
 \begin{equation} \label{eq:no_n}
-n = gkTe^\frac{(E_C-E_F)}{kT}
+n = gkTe^\frac{E_C-E_F}{kT}
 \end{equation}
+Concentrazione di \textit{lacune} seconda la distribuzione di Fermi-Dirac:
 \begin{equation} \label{eq:no_p}
-p = gkT e^\frac{(E_F-E_V)}{kT}
+p = gkT e^\frac{E_F-E_V}{kT}
 \end{equation}
 Per il silicio intrinseco $n=p$ quindi:
 \begin{equation*}
@@ -35,38 +49,49 @@ E_{Fi} = \frac{E_V + E_C}{2}
 \end{equation*}
 Allora la \eqref{eq:no_n} e la \eqref{eq:no_p} si possono riscrivere in funzione dell'$E_{Fi}$:
 \begin{equation*}
-n = n_i e^\frac{(E_F-E_{Fi})}{kT}
+n = n_i e^\frac{E_F-E_{Fi}}{kT}
 \end{equation*}
 \begin{equation*}
-p = n_i e^\frac{(E_{Fi}-E_F}{kT}
+p = n_i e^\frac{E_{Fi}-E_F}{kT}
 \end{equation*}
-Definiamo energia potenziale nella rispettiva zona (n, p) e di built-in:
+le quali, ovviamente, verificano la legge di azione di massa.\\
+Avendo definito energia potenziale nella rispettiva zona (n, p):
 \begin{equation*}
-\varphi_n = E_F-E_{Fi} = kT \log \left( \frac{N_D}{n_i} \right)
-\end{equation*}
-\begin{equation*}
-\varphi_p = E_{Fi}-E_F = kT \log \left(\frac{N_A}{n_i}\right)
+\Phi_n = E_F-E_{Fi} = kT \log \left( \frac{N_D}{n_i} \right)
 \end{equation*}
 \begin{equation*}
-\varphi_{bi} = \varphi_n + \varphi_p = kT \log \left(\frac{N_DN_A}{n_i^2}\right)
+\Phi_p = E_{Fi}-E_F = kT \log \left(\frac{N_A}{n_i}\right)
 \end{equation*}
-Definiamo Potenziale di Built-In:
+Presa una giunzione di due cristalli di silicio drogati uno $n$ e uno $p$ si ha uno sbilanciamento di carica che comporta una corrente. Per essere all'equilibrio termodinamico è necessario porre uguali le $E_F$ dei due cristalli. In questo modo si crea una barriera energetica che previene lo spostamento di carica.\\
+Inoltre, all'interfaccia tra i due cristalli ci deve essere un passaggio graduale dell'energia potenziale e non una discontinuità, infatti, avviene che per diffusione (agitazione termica) si ha una ricombinazione di elettroni e lacune che lasciano delle cariche fisse non compensate nei cristalli. La zona entro cui avviene questo fenomeno è detta \textit{zona di carica spaziale} (z.c.s.). Le cariche fisse, essendo di segno opposto generano un campo elettrico tra le due regioni definito \textit{potenziale built-in}:
 \begin{equation*}
-V_{bi} = \frac{\varphi_{bi}}{q} = \frac{\varphi_n + \varphi_p}{q} = \frac{kT}{q} \log \left(\frac{N_DN_A}{n_i^2}\right)
+\Phi_{bi} = \Phi_n + \Phi_p = kT \log \left(\frac{N_DN_A}{n_i^2}\right)
 \end{equation*}
-Dalla sequente:
+Infine si definisce \textit{tensione built-in}:
+\begin{equation*}
+V_{bi} = \varphi_{bi} = \frac{\Phi_{bi}}{q} = \frac{\Phi_n + \Phi_p}{q} = \frac{kT}{q} \log \left(\frac{N_DN_A}{n_i^2}\right)
+\end{equation*}
+la tensione tra le due regioni.\\
+Il termine $\frac{kT}{q}$ è anche detto \textit{tensione termica} il quale a $T=300K$ è pari a circa $25mV$.\\
+Dal teorema di Gauss per il campo elettrico:
 \begin{equation*}
 \frac{dE}{dx} = \frac{\rho}{\varepsilon_{Si}}
 \end{equation*}
-si ricava il campo elettrico massimo:
+con $\varepsilon_{Si} \simeq 1 pF/cm$, si ricava il campo elettrico massimo:
 \begin{equation} \label{eq:e_max}
-E_{max} = \frac{qN_Ax_p}{\varepsilon_{Si}} = \frac{qN_Dx_n}{\varepsilon_{Si}}
+E(0) = E_{max} = \frac{qN_Ax_p}{\varepsilon_{Si}} = \frac{qN_Dx_n}{\varepsilon_{Si}}
 \end{equation}
 da cui si ottiene:
 \begin{equation*}
 N_Dx_n = N_Ax_p
 \end{equation*}
-Inoltre sappiamo che le differenze di potenziale ($\Delta V_n$ e $\Delta V_p$) delle due zone è il potenziale di built-in. Con ciò si possono ricavare le relazioni in funzione della $V_{bi}$ delle dimensioni delle zone di carica spaziale:
+Inoltre sappiamo che le differenze di potenziale ($\Delta V_n$ e $\Delta V_p$) delle due zone è il potenziale di built-in.
+\begin{align*}
+V_{bi} &= \Delta V_p + \Delta V_n\\
+&= \frac{x_p E_{max}}{2} + \frac{x_n E_{max}}{2}\\
+&= \frac{qN_Ax_p^2}{2\varepsilon_{Si}} + \frac{qN_Dx_n^2}{2\varepsilon_{Si}}
+\end{align*}
+Con ciò si possono ricavare le relazioni in funzione della $V_{bi}$ delle dimensioni delle z.c.s.:
 \begin{equation} \label{eq:zcs_n}
 x_n = \sqrt{\frac{2\epsilon_{Si}}{q} \frac{N_A}{N_D} \frac{V_{bi}}{N_D+N_A}}
 \end{equation}
@@ -87,41 +112,35 @@ x_n = \sqrt{\frac{2\varepsilon_{Si}}{q} \frac{N_A}{N_D} \frac{1}{N_D+N_A} (V_{bi
 \begin{equation*}
 x_p = \sqrt{\frac{2\varepsilon_{Si}}{q} \frac{N_D}{N_A} \frac{1}{N_D+N_A} (V_{bi} + V_{ext})}
 \end{equation*}
+di conseguenza anche il campo elettrico $E_{max}$ aumenta:
+\begin{equation*}
+E_{max} = \sqrt{\frac{2q}{\varepsilon} \frac{N_D N_A}{N_D + N_A} (\Phi_{bi} + V_{ext})}
+\end{equation*}
 
 \subsection*{Capacità di giunzione}
 Se le regioni si allargano, vuol dire che delle cariche libere si sono spostate generando una corrente.
-Il comportamento di una giunzione può essere approssimato a quella di un condensatore a facce piane parallele:
+Il comportamento di una giunzione può essere descritto come un condensatore a facce piane parallele:
 \begin{equation*}
-C_j = \epsilon_{Si} \cdot \frac{A}{x_d}
+C_j = \frac{C_{j0}}{\sqrt{1 + \frac{V_{ext}}{\Phi_{bi}}}}
 \end{equation*}
 
 \subsection*{Limiti massimi di $V_{ext}$ in inversa}
-\subsubsection*{Effetto tunnel}
-\subsubsection*{Effetto valanga}
-Si definisce tensione di breakdown $V_{BD}$ la tensione massima che la giunzione può sostenere prima che uno dei due effetti sopracitati prenda il sopravvento.
-Per una giunzione unilatera ($N_D>>N_A$) attraverso la \eqref{eq:e_max} si ricava la relazione della tensione di breakdown:
+\begin{description}
+\item [$\rightarrow$] Effetto tunnel
+\item [$\rightarrow$] Effetto valanga
+\end{description}
+
+\subsubsection*{Tensione di breakdown}
+Si definisce tensione di breakdown $V_{BD}$ la tensione massima che la giunzione può sostenere prima che uno dei due effetti sopracitati prenda il sopravvento. Il valore di $V_{BD}$ si ricava dalla formula del campo elettrico massimo. Per una giunzione unilatera ($N_D>>N_A$) attraverso la \eqref{eq:e_max} si ricava la relazione della tensione di breakdown:
 \begin{equation*}
 V_{BD} = \frac{E_{BD}^2 \varepsilon_{Si}}{2qN_A} - V_{bi}
-\end{equation*}
-
-\section*{Polarizzazione Diretta}
-In questo caso la tensione $V_{ext}$ applicata abbassa la barriera di potenziale tra le due zone drogate tanto da creare un passaggio di corrente significativo che nel caso di polarizzazione inversa è trascurabile.
-Definiamo densità di corrente:
-\begin{equation*}
-J_n = qD_n \frac{dn}{dx}
-\end{equation*}
-Con $D_n$ coeff. di diffusione.
-\\
-Relazione di Einstein che lega il coeff. di diffusione e la mobilità:
-\begin{equation*}
-D_n = \frac{kT}{q} \mu_n
 \end{equation*}
 
 \section*{Fotodiodo}
 Ovvero un diodo polarizzato in inversa illuminato da un fascio di luce.
 La radiazione che colpisce il diodo può liberare degli elettroni che, scorrendo nel circuito, andranno a ricombinarsi producendo una corrente pari a:
 \begin{equation*}
-I_\nu = [\frac{\#fotoni}{area \cdot t} h\nu]
+I_\nu = \left[\frac{\#fotoni}{area \cdot t} h\nu\right]
 \end{equation*}
 L'assorbimento della radiazione è un fenomeno di volume per cui segue la relazione:
 \begin{equation*}
@@ -135,18 +154,38 @@ R_{(n, N_D)}^{neutra} = \frac{1}{N_D q \mu_n} \frac{w_n}{S}
 \end{equation*}
 
 \section*{Fotodiodo pin}
-Il fotodiodo pin consiste in una giunzione con del silicio intrinseco tra le regioni p e n. Viene utilizzato nei diodi che devono sostenere alte tensioni di lavoro perché praticamente tutta la $V$ cade su $w_i$.
+Un diodo che debba resistere a tensioni inverse elevate è necessario rendere poco drogata almeno una delle zone di cui il diodo è composto. Dato che una zona poco drogata corrisponde ad una resistività elevata del materiale, si deve considerare la presenza di una resistenza parassita, in serie al diodo, non trascurabile. A sua volta questa resistenza insieme alla capacità di giunzione può introdurre un polo nel circuito, che risulterà dunque più lento. Al fine di evitare questo problema, ma anche per realizzare fotodiodi con zone svuotate di dimensioni elevate, si può ricorrere alla struttura pin.\\
+\\
+Il fotodiodo pin consiste in una giunzione con del silicio intrinseco tra le regioni p e n. Viene utilizzato nei diodi che devono sostenere alte tensioni di lavoro perché praticamente tutta la $V$ cade sulla regione intrinseca $w_i$ e quindi $V_{BD} = E_{max} w_i$.
 
-\section*{Diodo}
+\section*{Polarizzazione Diretta}
+In questo caso la tensione $V_{ext}$ applicata abbassa la barriera di potenziale tra le due zone drogate tanto da creare un passaggio di corrente significativo. Per quantificare questa corrente è necessario studiare le caratteristiche cinetiche dei portatori in grado di superare la barriera di potenziale.
+
+\subsection*{Corrente di diffusione}
+Definiamo densità di corrente:
+\begin{align*}
+J_n &= q P \frac{\Delta x}{\Delta t} \frac{dn}{dx}\\
+&= qD_n \frac{dn}{dx}
+\end{align*}
+con $P$ probabilità di un elettrone di andare da sinistra a destra per il moto casuale e con $D_n$ coeff. di diffusione tipico del materiale. Da notare che $D_n = 3 D_p$
+\\
+Relazione di Einstein che lega il coeff. di diffusione e la mobilità:
+\begin{equation*}
+D_n = \frac{kT}{q} \mu_n
+\end{equation*}
+
+\section*{Diodo in polarizzazione diretta}
 Per calcolare la corrente passante si distingue tra due casi:
-Definiamo $\tau_{tr} = \frac{x_p^2}{2D_n}$ il tempo di transito di un $e^{-}$ e $\tau_n$ il tempo di vita dell'elettrone cioè il tempo medio prima della  ricombinazione.
+Definiamo $\tau_{tr} = \frac{x_p^2}{2D_n}$ il tempo di transito di un elettrone e $\tau_n$ il tempo di vita dell'elettrone cioè il tempo medio prima della  ricombinazione.
 
 \subsubsection*{Base corta}
 - L'approx. di base corta trascura la ricombinazione cioè quando $\tau_{tr}<<\tau_n$. Da cui $w_p<<L_n$ con $L_n = \sqrt{D_n \tau_n}$ lunghezza di diffusione (distanza percorsa prima di ricombinarsi).
 La corrente totale è quindi:
-\begin{equation*}
-I_{tot} = I_n + I_p = Aqn_i^2 \left[ \frac{D_n}{N_A w_p^\prime} + \frac{D_p}{N_D w_n^\prime} \right] \left[ e^\frac{qV_{ext}}{kT} - 1 \right] = I_S \cdot \left( e^\frac{qV_{ext}}{kT} - 1 \right)
-\end{equation*}
+\begin{align*}
+I_{tot} &= I_n + I_p\\
+&= Aqn_i^2 \left[ \frac{D_n}{N_A w_p^\prime} + \frac{D_p}{N_D w_n^\prime} \right] \left( e^\frac{qV_{ext}}{kT} - 1 \right)\\
+&= I_S \cdot \left( e^\frac{qV_{ext}}{kT} - 1 \right)
+\end{align*}
 con $w_n^\prime = w_n - x_n$ e $w_p^\prime = w_p - x_p$ cioè le zone neutre.\\
 Dalla relazione precedente sembrerebbe che la corrente diminuisca all'aumentare della temperatura, in realtà c'è da considerare che 
 \begin{equation*}
@@ -156,20 +195,31 @@ quindi c'è una relazione di tipo esponenziale tra l'aumento dei portatori liber
 
 \subsubsection*{Base lunga}
 - Il caso del diodo a base lunga invece tiene conto della ricombinazione degli elettroni. La relazione della corrente è analoga a quella per il diodo a base corta ma $w_p$ e $w_n$ sono rispettivamente approssimabili con $L_p$ e $L_n$. 
-\begin{equation*}
-I_{tot} = Aqn_i^2 \left[ \frac{D_n}{N_A L_p} + \frac{D_p}{N_D L_n} \right] \left[ e^\frac{qV_{ext}}{kT} - 1 \right] = I_S \cdot \left( e^\frac{qV_{ext}}{kT} - 1 \right)
-\end{equation*}
+\begin{align*}
+I_{tot} &= Aqn_i^2 \left[ \frac{D_n}{N_A L_p} + \frac{D_p}{N_D L_n} \right] \left( e^\frac{qV_{ext}}{kT} - 1 \right)\\
+&= I_S \cdot \left( e^\frac{qV_{ext}}{kT} - 1 \right)
+\end{align*}
 
 \section*{Transistore Bipolare (BJT)}
-\textbf{Interdizione}\\
-Entrambe le giunzioni sono polarizzate inversamente:\\
-\hspace*{2cm} $V_{BE}, V_{BC} < 0.7$\\
-\hspace*{2cm} $I_B \approx 0$\\
+Nella terminologia dei transistori bipolari, la giunzione polarizzata in diretta prende il nome di giunzione emettitore-base essendo la base l’elettrodo nel quale scorre la corrente di minoritari che vengono intercettati dall’altra giunzione, detta base-collettore.\\
+Si hanno dunque due possibili configurazioni di transistori:
+\begin{itemize}
+\item Nella prima configurazione i portatori che tramite la base transitano da emettitore a collettore sono elettroni: in tal caso la \textit{base}, dove gli elettroni sono minoritari è di \textit{tipo p}, emettitore e collettore di tipo n; il transistore è di tipo \textbf{npn}.
+\item Nella seconda configurazione i portatori che tramite la base transitano da emettitore a collettore sono buche: in tal caso la \textit{base}, dove le buche sono minoritarie è di \textit{tipo n}, emettitore e collettore di tipo p; il transistore è di tipo \textbf{pnp}.
+\end{itemize}
+In entrambi i casi, la tensione emettitore base determinerà la corrente che scorre nel collettore, quindi intuitivamente il transistore potrà essere rappresentato elettricamente come un generatore di corrente comandato in tensione.\\
 \\
-Regione attiva inversa\\
+In generale, le due strutture \textit{npn} e \textit{pnp} presentano quattro regimi di funzionamento:
+\begin{description}
+\item [Interdizione] Quando entrambe le giunzioni sono polarizzate inversamente:
+\begin{align*}
+&V_{BE}, V_{BC} < 0.7\\
+&I_B \approx 0
+\end{align*}
+e quindi non scorre corrente in nessun terminale del dispositivo.
+\item [Regione attiva inversa] 
 Quando $V_{BE} < 0.7V$ e $V_{BC} > 0.7V$.
-Regione attiva diretta\\
-Appena la tensione applicata raggiunge la tensione di soglia la giunzione BE è accesa mentre quella BC è spenta. Per valori della tensione applicata maggiori di 0.7V vale la seguente:
+\item [Regione attiva diretta] Appena la tensione applicata raggiunge la tensione di soglia la giunzione BE è accesa mentre quella BC è spenta. Per valori della tensione applicata maggiori di 0.7V vale la seguente:
 \begin{equation*}
 I_B = \frac{V - (0.7)}{R_B}
 \end{equation*}
@@ -177,19 +227,29 @@ Quindi trascurando l'effetto Early vale:
 \begin{equation*}
 I_C = \beta_F I_B
 \end{equation*}
-\\
-\textbf{Saturazione}\\
+\item [Saturazione] Quando entrambe le giunzioni sono polarizzate direttamente:\\
 \hspace*{2cm} $V_{BE}, V_{BC} \geqslant 0.7$\\
+\end{description}
 
+Guadagno di corrente:
+\begin{equation*}
+\beta = \frac{I_C}{I_B} =
+\end{equation*}
 \section*{MOSFET}
 \subsection*{MOS - Metal Oxide Semiconductor}
+Regione composta da tre strati di materiali diversi:
+\begin{itemize}
+\item Silicio
+\item Ossido (isolante)
+\item Silicio policristallino estremamente drogato tale da renderne il comportamento metallico
+\end{itemize}
 Tensione di flat-band:
 \begin{equation*}
-V_{fb} = -\Delta V = - \left( \frac{E_{gap}}{2q} + \varphi_p \right)
+V_{fb} = -\Delta V = -(V_{ox} +V_{Si}) = - \left( \frac{E_{gap}}{2q} + \varphi_p \right)
 \end{equation*}
-Ovvero la tensione che applicata tra gate e substrato fa coincidere le $E_F$ annullando il campo elettrico in direzione verticale. Ad esempio se il substrato è di tipo $p$ e nessuna tensione è applicata tra gate e substrato, si ha una differenza di potenziale tra metallo ($-$) e substrato ($+$). Aumentando la tensione esterna tra i due strati si raggiunge una condizione di equilibrio dove la tensione totale è nulla. proseguendo oltre e superando la tensione di soglia si ottiene un'inversione del substrato, che diventa equivalente ad una zona $n$, e si crea un canale conduttivo al di sotto dell'ossido composto da cariche libere. La tensione di flat-band è negativa se il substrato è di tipo $p$, viceversa se di tipo $n$.\\
+Ovvero la tensione che applicata tra gate e substrato fa coincidere le $E_F$ annullando il campo elettrico in direzione verticale (attraverso gli strati del MOS). Ad esempio se il substrato è di tipo $p$ e nessuna tensione è applicata tra gate e substrato, si ha una differenza di potenziale tra metallo ($-$) e substrato ($+$). Aumentando la tensione esterna tra i due strati si raggiunge una condizione di equilibrio dove la tensione totale è nulla. proseguendo oltre e superando la tensione di soglia si ottiene un'inversione del substrato, che diventa equivalente ad una zona $n$, e si crea un canale conduttivo al di sotto dell'ossido composto da cariche libere. La tensione di flat-band è negativa se il substrato è di tipo $p$, viceversa se di tipo $n$.\\
 \\
-Tutto quanto detto a seguire vale per la tensione di gate-source e la tensione del bulk a massa. Nel paragrafo Effetto body toglieremo questo vincolo.\\
+Tutto quanto detto a seguire vale per la tensione di gate-source e la tensione del bulk a massa. Nel paragrafo relativo all'effetto body toglieremo questo vincolo.\\
 \\
 Si definisce tensione di soglia $V_T$ la tensione per cui si ha la condizione di inversione della zona drogata, ad esempio da zona $p$ diventa zona $n$ ($\varphi_p = \varphi_n$). Questa inversione fa si che si crei un canale conduttivo subito sotto l'ossido dove può scorrere una corrente.\\
 Dalle seguenti relazioni
@@ -210,18 +270,19 @@ Se $V_{GS} < V_T$ ci si trova nella condizione di interdizione per cui non può 
 \\
 Se $V_{GS} > V_T$ allora è presente un canale conduttivo sotto l'ossido dove gli elettroni possono scorrere. La carica che si forma si può ricavare dall'approssimazione del MOS ad un condensatore:
 \begin{equation*}
-Q = -C_{ox} (V_{GS} - V_T)
+Q = A C_{ox} (V_{GS} - V_T)
 \end{equation*}
-con $C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}}$ capacità dell'ossido per unità di area. $t_{ox}$ è lo spessore dell'ossido.
-
-\begin{equation}	\label{eq:corrente_ch}
+con $C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}}$ capacità dell'ossido per unità di area. $t_{ox}$ è lo spessore dell'ossido.\\
+\\
+La corrente che scorre nel dispositivo dipende dalla $V_{DS}$, infatti vale:
+\begin{equation}\label{eq:corrente_ch}
 I_D = C_{ox} \mu_n \frac{W}{L} \left[ (V_{GS} - V_T)V_{DS} - \frac{1}{2}V_{DS}^2 \right]
 \end{equation}
 Per $V_{DS}$ piccole si può trascurare il termine quadratico ottenendo:
 \begin{equation*}
 I_D = \frac{V_{DS}}{R_{Ch}}
 \end{equation*}
-con $R_{Ch} = \frac{1}{\frac{W}{L} C_{ox} \mu_n (V_{GS} - V_T)}$  definita resistenza di canale. In questa condizione ($V_{DS} << V_{GS} - V_T$) si è in regime ohmico o lineare.\\
+con $R_{Ch} = \frac{1}{\frac{W}{L} C_{ox} \mu_n (V_{GS} - V_T)}$  definita resistenza di canale. In questa condizione ($V_{DS} << V_{GS} - V_T$) si è in \textbf{regime ohmico} o lineare.\\
 Per $V_{DS} >> V_{GS} - V_T$ entra in gioco anche il termine quadratico che non è più trascurabile quindi la corrente passante tende a diminuire parabolicamente. Calcoliamo il massimo:
 \begin{equation*}
 \frac{\partial I_D}{ \partial V_{DS}} = C_{ox} \mu_n \frac{W}{L} (V_{GS} - V_T - V_{DS}) = 0
@@ -235,7 +296,7 @@ I_D = \frac{1}{2} C_{ox} \mu_n \frac{W}{L} (V_{GS} - V_T)^2
 \subsection*{Modulazione per effetto canale}
 Nel caso in cui ci si trovi nella situazione in cui $V_{DS} > V_{GS} - V_T + \Delta V_{DS}$ cioè con una tensione drain-source poco superiore a $V_{GS} - V_T$ di una quantità $\Delta V_{DS}$ piccola, il canale non attraverserà completamente il substrato ma ci sarà un punto $P$, dove termina la zona di cariche mobili.\\
 \\
-Quindi definiamo la lunghezza efficace $L_{eff} = L - \Delta L$ che è la lunghezza del canale. $\Delta L$ è la distanza necessaria per avere il termine di tensione $\Delta V_{DS}$ tenendo conto del campo elettrico presente $E_{max}$, quindi $\Delta L = \frac{\Delta V_{DS}}{E_{max}}$.\\
+Quindi definiamo la lunghezza efficace $L_{eff} = L - \Delta L$ che è la lunghezza del canale. $\Delta L$ è la distanza necessaria per avere il termine di tensione $\Delta V_{DS}$ tenendo conto del campo elettrico presente $E \simeq E_{max}$, quindi $\Delta L = \frac{\Delta V_{DS}}{E_{max}}$.\\
 \\
 Utilizzando la \eqref{eq:corrente_sat} sostituendo $L_{eff}$ si ottiene:
 \begin{equation*}
@@ -246,14 +307,14 @@ I_D = \frac{1}{2} C_{ox} \mu_n \frac{W}{L} \left(1+\frac{\Delta L}{L} \right) (V
 \end{equation*}
 Dalla quale si evince che la corrente non è completamente indipendente dalla tensione $V_{DS}$.
 
-\subsection*{Effetto body}
+\subsection*{Effetto body}\label{effetto body}
 Si rimuove il vincolo che il source e il body siano allo stesso potenziale.
 \begin{equation*}
 V_T^* = V_{T_0} + \gamma \left( \sqrt{2\varphi_p + V_{SB}} - \sqrt{2\varphi_p} \right)
 \end{equation*}
 con $V_{T_0}$ la tensione di soglia quando $V_{SB} = 0$ e con $\gamma = \frac{\sqrt{qN_A 2\varepsilon_{Si}}}{C_{ox}}$ detto coefficiente di body.
 \begin{equation*}
-I_D = \frac{1}{2} C_{ox} \mu_n \frac{W}{L} \left[ V_{GS} - V_{T_0} + \gamma \left( \sqrt{2\varphi_p + V_{SB}} - \sqrt{2\varphi_p} \right) \right]^2
+I_D = \frac{1}{2} C_{ox} \mu_n \frac{W}{L} \left[ V_{GS} - V_{T_0} - \gamma \left( \sqrt{2\varphi_p + V_{SB}} - \sqrt{2\varphi_p} \right) \right]^2
 \end{equation*}
 
 \subsection*{pMOSFET}
